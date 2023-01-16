@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pendant Maker</title>
     
 </head>
 <body>
-    <h1>Pendant Creator</h1>
-    <h2>This website only works for circle pendants.</h2>
+    <h1>Pendant Maker</h1>
     <form onsubmit="return false;" id="pendant-info">
         <div>
             <label for="pendant-size">Enter pendant size (in millimeters)</label>
@@ -18,6 +17,14 @@
         <div>
             <label for="customer-photo-upload">Upload customer photo</label>
             <input type="file" name="customer-photo-upload" id="customer-photo-upload">
+        </div>
+        <div>
+            <label for="bg-repeat">Check this box if you want the image to repeat</label>
+            <input type="checkbox" name="bg-repeat" id="bg-repeat">
+        </div>
+        <div>
+            <label for="empty-space-color">Fill empty space with color</label>
+            <input type="color" name="empty-space-color" id="empty-space-color">
         </div>
         <!-- <div>
             <label for="copies">Select how many copies to make</label>
@@ -30,9 +37,8 @@
     </form>
 
     <form id="photo-editor">
-        <h2>Photo edit</h2>
         <div>
-            <label for="scale">Scale</label>
+            <label for="scale">Zoom</label>
             <input type="range" name="scale" id="scale" value="100" min="100" max="2000">
         </div>
         <div>
@@ -45,22 +51,30 @@
         </div>
         <div>
             <label for="rotate">Rotate</label>
-            <input type="range" name="rotate" id="rotate" min="-180" max="180">
+            <input type="range" name="rotate" id="rotate" min="-180" max="180" list="rotate-ticks">
+
+            <datalist id="rotate-ticks">
+                <option value="-180"></option>
+                <option value="0"></option>
+                <option value="180"></option>
+            </datalist>
         </div>
         <div>
             <label for="brightness">Brightness</label>
-            <input type="range" name="brightness" id="brightness" min="0" max="2" step="0.01" list="markers">
+            <input type="range" name="brightness" id="brightness" min="0" max="2" step="0.01" list="brightness-ticks">
 
-            <datalist id="markers">
+            <datalist id="brightness-ticks">
                 <option value="0"></option>
                 <option value="1.0"></option>
                 <option value="2"></option>
-              </datalist>
+            </datalist>
         </div>
     </form>
 
     <div id="pendant"></div>
     <div id="pendant"></div>
+
+    <button onclick="print()">Print</button>
 
     <script src="app.js"></script>
 </body>
@@ -79,7 +93,8 @@
 <style>
     html {
         font-family: Arial, Helvetica, sans-serif;
-        margin: .5rem;
+        font-size: 18px;
+        margin: 0 1rem;
     }
 
     html * {
@@ -98,6 +113,20 @@
         background-color: red;
         background-size: 100%;
         border-radius: 50%;
+    }
+
+    input {
+        font-size: 1rem;
+    }
+
+    input#pendant-size {
+        font-size: 1.5rem;
+        width: 4rem;
+    }
+
+    input[type="checkbox"] {
+        height: 1.5rem;
+        width: 1.5rem;
     }
 
 </style>

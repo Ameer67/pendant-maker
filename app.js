@@ -2,13 +2,23 @@ let pendants = document.querySelectorAll("#pendant");
 
 const pendantInfo = document.getElementById("pendant-info");
 let pendantSize;
+let emptySpaceColor;
+let bgRepeat;
 
 pendantInfo.addEventListener("change", function(event) {
     pendantSize = parseInt(document.getElementById("pendant-size").value);
-    console.log('b');
+    emptySpaceColor = document.getElementById("empty-space-color").value;
+    bgRepeat = document.getElementById("bg-repeat").checked;
     for (i = 0; i < pendants.length; i++) {
         pendants[i].style.height = pendantSize + 'mm';
         pendants[i].style.width = pendantSize + 'mm';
+        pendants[i].style.backgroundColor = emptySpaceColor;
+
+        if (bgRepeat === true) {
+            pendants[i].style.backgroundRepeat = 'repeat';
+        } else {
+            pendants[i].style.backgroundRepeat = 'no-repeat';
+        }
     }    
 })
 
