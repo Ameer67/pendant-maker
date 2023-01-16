@@ -8,22 +8,21 @@
     
 </head>
 <body>
-    <h1>Pendant Maker</h1>
     <form onsubmit="return false;" id="pendant-info">
         <div>
-            <label for="pendant-size">Enter pendant size (in millimeters)</label>
+            <label for="pendant-size">Enter pendant size (millimeters)</label>
             <input type="number" name="pendant-size" id="pendant-size">
         </div>
         <div>
-            <label for="customer-photo-upload">Upload customer photo</label>
+            <label for="customer-photo-upload">Upload customer picture</label>
             <input type="file" name="customer-photo-upload" id="customer-photo-upload">
         </div>
         <div>
-            <label for="bg-repeat">Check this box if you want the image to repeat</label>
+            <label for="bg-repeat">Check this box if you want the picture to repeat</label>
             <input type="checkbox" name="bg-repeat" id="bg-repeat">
         </div>
         <div>
-            <label for="empty-space-color">Fill empty space with color</label>
+            <label for="empty-space-color">Choose color to fill empty space</label>
             <input type="color" name="empty-space-color" id="empty-space-color">
         </div>
         <!-- <div>
@@ -42,12 +41,12 @@
             <input type="range" name="scale" id="scale" value="100" min="100" max="2000">
         </div>
         <div>
-            <label for="position-up-down">Position (up and down)</label>
-            <input type="range" name="position-up-down" id="position-up-down" min="-100" max="100">
+            <label for="position-up-down">Move up or down</label>
+            <input type="range" name="position-up-down" id="position-up-down" min="-50" max="150" step="0.1">
         </div>
         <div>
-            <label for="position-left-right">Position (left and right)</label>
-            <input type="range" name="position-left-right" id="position-left-right" min="-100" max="100">
+            <label for="position-left-right">Move left or right</label>
+            <input type="range" name="position-left-right" id="position-left-right" min="-50" max="150" step="0.1">
         </div>
         <div>
             <label for="rotate">Rotate</label>
@@ -74,7 +73,7 @@
     <div id="pendant"></div>
     <div id="pendant"></div>
 
-    <button onclick="print()">Print</button>
+    <button style="display: block;" onclick="print()">Click this button when ready to print</button>
 
     <script src="app.js"></script>
 </body>
@@ -94,7 +93,7 @@
     html {
         font-family: Arial, Helvetica, sans-serif;
         font-size: 18px;
-        margin: 0 1rem;
+        margin: 0 1.5rem;
     }
 
     html * {
@@ -110,9 +109,17 @@
         margin-right: 10mm;
         width: 5mm;
         height: 5mm;
-        background-color: red;
+        background-color: black;
         background-size: 100%;
         border-radius: 50%;
+        background-position: 50% 50%;
+    }
+
+    #pendant-info > div {
+        /* background-color: gainsboro; */
+        padding: .5rem;
+        text-align: center;
+        border-bottom: 2px solid gainsboro;
     }
 
     input {
