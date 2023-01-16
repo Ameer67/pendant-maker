@@ -73,7 +73,7 @@
     <div id="pendant"></div>
     <div id="pendant"></div>
 
-    <button style="display: block; padding: .5rem; margin: auto;" onclick="print()">Click this button when ready to print</button>
+    <button style="padding: .5rem; margin: auto;" onclick="print()">Click this button when ready to print</button>
 
     <script src="app.js"></script>
 </body>
@@ -85,6 +85,7 @@
 
     #pendant {
         display: inline-block;
+        print-color-adjust: exact;
         -webkit-print-color-adjust: exact;
     }
  </style>
