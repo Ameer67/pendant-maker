@@ -1,9 +1,18 @@
 let pendants = document.querySelectorAll("#pendant");
 
+let pendantSizeInput = document.getElementById("pendant-size");
+
+pendantSizeInput.addEventListener("input", function(event){
+    // Lose focus after 2 digits are entered
+    if (pendantSizeInput.value.length >= 2) {
+        event.target.blur();
+    }
+})
+
 const pendantInfo = document.getElementById("pendant-info");
 let pendantSize, emptySpaceColor;
 pendantInfo.addEventListener("change", function(event) {
-    pendantSize = parseInt(document.getElementById("pendant-size").value);
+    pendantSize = parseInt(pendantSizeInput.value);
     emptySpaceColor = document.getElementById("empty-space-color").value;
     for (i = 0; i < pendants.length; i++) {
         pendants[i].style.height = pendantSize + 'mm';
