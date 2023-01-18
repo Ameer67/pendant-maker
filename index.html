@@ -22,7 +22,7 @@
             <input type="checkbox" name="bg-repeat" id="bg-repeat">
         </div> -->
         <div>
-            <label for="empty-space-color">Choose color to fill empty space</label>
+            <label for="empty-space-color">Choose color to fill empty space (if needed)</label>
             <input type="color" name="empty-space-color" id="empty-space-color">
         </div>
         <!-- <div>
@@ -53,25 +53,43 @@
             <input type="range" name="rotate" id="rotate" min="-180" max="180" list="rotate-ticks">
 
             <datalist id="rotate-ticks">
-                <option value="-180"></option>
+                <!-- <option value="-180"></option> -->
                 <option value="0"></option>
-                <option value="180"></option>
+                <!-- <option value="180"></option> -->
             </datalist>
         </div>
         <div>
-            <label for="brightness">Brightness</label>
-            <input type="range" name="brightness" id="brightness" min="0" max="2" step="0.01" list="brightness-ticks">
+            <label for="brightness">Brightness <span id="brightness-value-text">#</span> <br> (recommended values: try 1.1 - 1.2 for light skinned, try 1.3 - 1.5 for dark skinned)</label>
+            <input type="range" name="brightness" id="brightness" min="0" max="2" value="1.25" step="0.01" list="brightness-ticks">
 
             <datalist id="brightness-ticks">
-                <option value="0"></option>
-                <option value="1.0"></option>
-                <option value="2"></option>
+                <!-- <option value="0"></option> -->
+                <option value="1"></option>
+                <!-- <option value="2"></option> -->
             </datalist>
         </div>
     </form>
 
     <div id="pendant"></div>
     <div id="pendant"></div>
+
+    <div>
+        <p>Before printing, make sure glossy paper is in printer and that your phone is connected to the house WiFi. Once you have read these directions, click on the button at the bottom of this page.</p>
+
+        <p>After printing, measure picture to make sure it is the correct size and that the picture is not too dark or too bright.</p>
+        <div>
+            <h3>Printing directions (Android)</h3>
+            <p>When you press the button at the bottom, the print screen will show up. Select HP OfficeJet 3830. (The one with the HP logo.) Click on the small arrow in the middle. Make sure the color setting says "Color" and not "black/white". Now press "more options". For quality, select "best". Now go back and press the yellow circle print icon. </p>
+        </div>
+        <div>
+            <h3>Printing directions (Apple)</h3>
+            <p>When you press the button at the bottom, the print screen will show up. Select HP OfficeJet 3830. Make sure "black & white" is NOT checked (it will be green if it is checked). Click on "Media & Quality". Put "print quality" to "best". Now press "Print".</p>
+        </div>
+        
+        
+    </div>
+
+    <hr>
 
     <button style="padding: .5rem; margin: auto;" onclick="print()">Click this button when ready to print</button>
 
@@ -107,7 +125,7 @@
 
     #pendant {
         display: inline-block;
-        margin-right: 10mm;
+        margin-right: 8mm;
         width: 5mm;
         height: 5mm;
         background-color: black;
@@ -115,6 +133,7 @@
         border-radius: 50%;
         background-position: 50% 50%;
         background-repeat: no-repeat;
+        filter: brightness(1.25);
     }
 
     #pendant-info > div {
@@ -131,11 +150,19 @@
     input#pendant-size {
         font-size: 1.5rem;
         width: 4rem;
+        text-align: center;
     }
 
     input[type="checkbox"] {
         height: 1.5rem;
         width: 1.5rem;
+    }
+
+    #brightness-value-text {
+        font-size: calc(1rem - 4px);
+        border: 1px solid gray;
+        padding: 3px;
+        margin: 0px;
     }
 
 </style>
