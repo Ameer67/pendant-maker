@@ -49,19 +49,19 @@
             <label for="position-left-right">Move left or right</label>
             <input type="range" name="position-left-right" id="position-left-right" min="-50" max="150" step="0.1">
         </div>
-        <div>
+        <div style="display: none;">
             <label for="rotate">Rotate</label>
             <input type="range" name="rotate" id="rotate" min="-180" max="180" list="rotate-ticks">
 
             <datalist id="rotate-ticks">
-                <!-- <option value="-180"></option> -->
+                <option value="-180"></option>
                 <option value="0"></option>
-                <!-- <option value="180"></option> -->
+                <option value="180"></option>
             </datalist>
         </div>
         <div>
-            <label for="brightness">Brightness <span id="brightness-value-text">#</span> <br> (recommended values: try 1.1 - 1.2 for light skinned, try 1.3 - 1.5 for dark skinned)</label>
-            <input type="range" name="brightness" id="brightness" min="0" max="2" value="1.25" step="0.01" list="brightness-ticks">
+            <label for="brightness">Brightness <span id="brightness-value-text">#</span> <br> (try 1.1 - 1.2 for light skinned, try 1.3 - 1.5 for dark skinned)</label>
+            <input type="range" name="brightness" id="brightness" min="0.5" max="2" value="1.3" step="0.05" list="brightness-ticks">
 
             <datalist id="brightness-ticks">
                 <!-- <option value="0"></option> -->
@@ -161,9 +161,14 @@
 
     #brightness-value-text {
         font-size: calc(1rem - 4px);
-        border: 1px solid gray;
+        border: 2px solid gray;
         padding: 3px;
         margin: 0px;
+        font-weight: bold;
+    }
+
+    #photo-editor > div {
+        margin-bottom: 1rem;
     }
 
 </style>
